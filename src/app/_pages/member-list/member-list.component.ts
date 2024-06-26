@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CreateMember } from 'src/app/_interfaces/create-member';
 import { Member } from 'src/app/_interfaces/member';
 import { MemberService } from 'src/app/_services/member.service';
 
@@ -9,6 +10,9 @@ import { MemberService } from 'src/app/_services/member.service';
 })
 export class MemberListComponent implements OnInit {
   members: Member[] = [];
+  showModal: boolean = false;
+  showModalE: boolean = false;
+  selectedInt: CreateMember|null = null;
 
   constructor(private memberService: MemberService) {}
 
@@ -18,5 +22,23 @@ export class MemberListComponent implements OnInit {
         this.members = members;
       },
     });
+    
+  }
+
+  openModal():void{
+    this.showModal = true;
+  }
+
+  closeModal():void{
+    this.showModal = false;
+  }
+
+  openModalEdit(integrant: CreateMember):void{
+    this.selectedInt =integrant
+    this.showModalE = true;
+  }
+
+  closeModalEdit():void{
+    this.showModalE = false;
   }
 }

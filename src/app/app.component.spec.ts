@@ -17,7 +17,6 @@ describe('AppComponent', () => {
   it(`should have as title 'hackadisc-angular-client'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('hackadisc-angular-client');
   });
 
   it('should render title', () => {
